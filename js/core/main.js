@@ -1,10 +1,7 @@
-// Returns a price as text, e.g. 480 -> "$480"
 function formatPrice(amount) {
   return "$" + amount.toLocaleString("en-US");
 }
 
-// Saves any value in localStorage (as JSON).
-// try/catch: storage can be blocked in private mode.
 function saveData(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
@@ -13,8 +10,6 @@ function saveData(key, value) {
   }
 }
 
-// Reads a value from localStorage and returns it,
-// or returns the fallback value if nothing is saved.
 
   function loadData(key, fallback) {
     try {
@@ -36,7 +31,6 @@ function saveData(key, value) {
   }
 
 
-// Shows a short notification at the bottom of the screen
 function showToast(text) {
   let toast = document.querySelector("#toast");
   if (!toast) {
@@ -54,7 +48,6 @@ function showToast(text) {
   }, 2200);
 }
 
-/* Theme switcher */
 
 function applyTheme(theme) {
   const button = document.querySelector("#theme-toggle");
@@ -70,7 +63,6 @@ function applyTheme(theme) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Theme: load the saved choice and react to clicks
   let currentTheme = loadData("nomadica-theme", "light");
   applyTheme(currentTheme);
 
@@ -85,27 +77,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-/* jQuery: mobile menu and back-to-top  */
 
 $(document).ready(function () {
-  const $nav = $("#main-nav");             // ID selector
+  const $nav = $("#main-nav");
   const $menuButton = $("#nav-toggle");
 
-  // Mobile menu: slide the navigation open / closed
   $menuButton.on("click", function () {
     $nav.slideToggle(250);
     const isOpen = $(this).attr("aria-expanded") === "true";
     $(this).attr("aria-expanded", !isOpen).text(isOpen ? "☰ Menu" : "✕ Close");
   });
 
-  // Keyboard: Escape closes the mobile menu
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && $menuButton.attr("aria-expanded") === "true") {
       $menuButton.trigger("click");
     }
   });
 
-  // When the window becomes wide again, remove the inline display style
   $(window).on("resize", function () {
     if (window.innerWidth >= 992) {
       $nav.css("display", "");
@@ -113,8 +101,7 @@ $(document).ready(function () {
     }
   });
 
-  // Back-to-top: only show after the user scrolls down
-  const $backTop = $(".back-top");         // class selector
+  const $backTop = $(".back-top");
   $backTop.hide();
   $(window).on("scroll", function () {
     if ($(this).scrollTop() > 400) {
@@ -124,7 +111,6 @@ $(document).ready(function () {
     }
   });
 
-  // Smooth scroll to the top with animate()
   $backTop.on("click", function (event) {
     event.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, 400);

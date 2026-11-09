@@ -1,4 +1,3 @@
-// Array 1: sample flight + hotel options (routes.html)
 const routeOptions = [
   { id: 1, type: "Budget",  flight: "JFK → AMS → LHR", duration: "14h 15m", stops: 1, hotel: "The Pilgrm Hotel, London W2",     price: 480 },
   { id: 2, type: "Popular", flight: "JFK → LHR",       duration: "7h 10m",  stops: 0, hotel: "citizenM London Bankside",        price: 620 },
@@ -10,7 +9,6 @@ const routeOptions = [
 
 
 
-// Array 2: places to visit near the event (discover.html)
 const places = [
   { id: 1,  name: "Borough Market",          category: "food",      area: "London Bridge", text: "Street food, bakeries and local produce in one of London's oldest markets." },
   { id: 2,  name: "Glastonbury Abbey",        category: "culture",   area: "Glastonbury",   text: "Ruins and gardens of a medieval abbey, a short walk from the town centre." },
@@ -24,8 +22,6 @@ const places = [
   { id: 10, name: "Southbank Centre",         category: "nightlife", area: "South Bank",    text: "Evening concerts, riverside bars and free events." }
 ];
 
-// Array 3: trip purposes (used to fill the <select> on plan.html)
 const tripPurposes = ["Concert", "Festival", "Business event", "Sports event", "Leisure", "Other"];
 
-// Array 4: categories for the filter buttons on discover.html
 const placeCategories = ["all", "food", "culture", "nature", "nightlife", "shopping"];
